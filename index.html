@@ -126,15 +126,18 @@ function typeWriter() {
 // YES button 💖
 const music = document.getElementById("bgMusic");
 
-document.getElementById("yesBtn").addEventListener("click", () => {
-  music.play(); // 🔥 this will work now
+// Start music on ANY first click
+document.addEventListener("click", () => {
+  music.play().catch(err => console.log(err));
+}, { once: true });
 
+// YES button
+document.getElementById("yesBtn").addEventListener("click", () => {
   document.getElementById("finalScreen").style.display = "block";
   typeWriter();
   startHearts();
   startSlideshow();
 });
-
 // Floating hearts animation 💕
 function startHearts() {
   setInterval(() => {
