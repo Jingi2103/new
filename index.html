@@ -81,7 +81,7 @@ img {
 <body>
 
 <!-- 🎵 Background Music -->
-<audio autoplay loop>
+<audio id="bgMusic" loop>
   <source src="your-music.mp3" type="audio/mpeg">
 </audio>
 
@@ -124,7 +124,11 @@ function typeWriter() {
 }
 
 // YES button 💖
+const music = document.getElementById("bgMusic");
+
 document.getElementById("yesBtn").addEventListener("click", () => {
+  music.play(); // 🔥 this will work now
+
   document.getElementById("finalScreen").style.display = "block";
   typeWriter();
   startHearts();
